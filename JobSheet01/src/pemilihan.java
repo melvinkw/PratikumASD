@@ -4,44 +4,59 @@ public class pemilihan {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("==== Hitung Nilai Akhir ====");
-        System.out.print("Nilai Tugas (0-100): ");
-        double tugas = sc.nextDouble();
-        System.out.print("Nilai Kuis (0-100): ");
-        double kuis = sc.nextDouble();
-        System.out.print("Nilai UTS (0-100): ");
-        double uts = sc.nextDouble();
-        System.out.print("Nilai UAS (0-100): ");
-        double uas = sc.nextDouble();
+        double assignment, quiz, uts, uas, pAssignment = 20, pQuiz = 20, pUts = 30, pUas = 30, finalGrade;
+        String letter, description;
 
-        // Cek validitas input
-        if (!valid(tugas) || !valid(kuis) || !valid(uts) || !valid(uas)) {
-            System.out.println("nilai tidak valid");
-            return; 
+        System.out.println("final score of students ");
+        System.out.println("=========================");
+        System.out.print("Input assignment scores (0-100): ");
+        assignment = sc.nextDouble();
+        System.out.print("Input quiz scores: ");
+        quiz = sc.nextDouble();
+        System.out.print("Input UTS scores: ");
+        uts = sc.nextDouble();
+        System.out.print("Input UAS scores: ");
+        uas = sc.nextDouble();
+        System.out.println("=========================");
+        System.out.println("=========================");
+
+        if (assignment < 0 || assignment > 100 || quiz < 0 || quiz > 100 || uts < 0 || uts > 100 ||
+            uas < 0 || uas > 100) {
+
+            System.out.println("Invalid value. Scores must be between 0 and 100.");
+            return;
         }
 
-        double wTugas = 20, wKuis = 20, wUTS = 30, wUAS = 30;
+        finalGrade = assignment * pAssignment/100.0 + quiz * pQuiz/100.0 + uts * pUts/100.0 + uas * pUas/100.0;
+        if (finalGrade >= 81) {
+            letter = "A";
+        } else if (finalGrade >= 80) {
+            letter = "B+";
+        } else if (finalGrade >= 65) {
+            letter = "B";
+        } else if (finalGrade >= 60) {
+            letter = "C+";
+        } else if (finalGrade >= 50) {
+            letter = "C";
+        } else if (finalGrade >= 39) {
+            letter = "D";
+        } else {
+            letter = "E";
+        }
 
-        double nilaiAkhir = tugas * wTugas/100.0 + kuis * wKuis/100.0 + uts * wUTS/100.0 + uas * wUAS/100.0;
-        String huruf = toHuruf(nilaiAkhir);
-        String keterangan = (huruf.equals("A") || huruf.equals("B+") || huruf.equals("B") || huruf.equals("C+") || huruf.equals("C")) ? "LULUS" : "TIDAK LULUS";
-
-        System.out.printf("Nilai Akhir: %.2f\n", nilaiAkhir);
-        System.out.println("Nilai Huruf: " + huruf);
-        System.out.println("Keterangan: " + keterangan);
+        if(letter.equals("D") || letter.equals("E")){
+            System.out.printf("final grades: %.2f\n", finalGrade);
+            System.out.println("letter grades: " + letter);
+            System.out.println("=========================");
+            System.out.println("=========================");
+            System.out.println("Maaf Anda Tidak Lulus");
+        } else{
+             System.out.printf("final grades: %.2f\n", finalGrade);
+            System.out.println("letter grades,: " + letter);
+            System.out.println("=========================");
+            System.out.println("=========================");
+            System.out.println("Selamat Anda Lulus");
+        }
     }
 
-    static boolean valid(double x) {
-        return x >= 0 && x <= 100;
-    }
-
-    static String toHuruf(double n) {
-        if (n >= 85) return "A";
-        if (n >= 80) return "B+";
-        if (n >= 75) return "B";
-        if (n >= 70) return "C+";
-        if (n >= 65) return "C";
-        if (n >= 50) return "D";
-        return "E";
-    }
 }
