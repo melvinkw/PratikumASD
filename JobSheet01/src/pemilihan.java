@@ -9,7 +9,7 @@ public class pemilihan {
 
         System.out.println("final score of students ");
         System.out.println("=========================");
-        System.out.print("Input assignment scores (0-100): ");
+        System.out.print("Input assignment scores: ");
         assignment = sc.nextDouble();
         System.out.print("Input quiz scores: ");
         quiz = sc.nextDouble();
