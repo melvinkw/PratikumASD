@@ -1,5 +1,5 @@
 public class Lecture15 {
-     String idLecturer;
+    String idLecturer;
     String name;
     boolean activeStatus;
     int yearOfEntry;

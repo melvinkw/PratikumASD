@@ -33,7 +33,7 @@ public class mahasiswa15 {
     void updateIpk(double ipkBaru){
         if (ipkBaru >= 0.0 && ipkBaru <= 4.0) {
         ipk = ipkBaru;
-        }   else {
+        } else {
         System.out.println("GPA is invalid. Must be between 0.0 and 4.0");
         }
     }
