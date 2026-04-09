@@ -1,4 +1,4 @@
-public class MergeSort {
+public class MergeSort15 {
 
     public void mergeSort(int[] data) {
         sort(data, 0, data.length - 1);

@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
-public class DosenDemo {
+public class DemoLecture15 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        DataDosen data = new DataDosen();
+        LectureData15 data = new LectureData15();
 
         int choice;
         do {
@@ -32,25 +32,25 @@ public class DosenDemo {
                     int usia = sc.nextInt();
                     sc.nextLine();
 
-                    data.tambah(new Dosen(kode, nama, jk, usia));
+                    data.tambah(new Lecture15(kode, nama, jk, usia));
                     System.out.println("Lecturer data added.");
                     break;
 
                 case 2:
                     System.out.println("===== ALL LECTURER DATA =====");
-                    data.tampil();
+                    data.print();
                     break;
 
                 case 3:
                     data.sortingASC();
                     System.out.println("Data sorted ascending by age.");
-                    data.tampil();
+                    data.print();
                     break;
 
                 case 4:
                     data.sortingDSC();
                     System.out.println("Data sorted descending by age.");
-                    data.tampil();
+                    data.print();
                     break;
 
                 case 5:

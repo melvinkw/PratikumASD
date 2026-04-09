@@ -3,7 +3,7 @@ public class SortMain15 {
         int data[] = {10, 40, 30, 50, 70, 20, 100, 90};
         
         System.out.println("Sorting with merge sort");
-        MergeSort mSort = new MergeSort();
+        MergeSort15 mSort = new MergeSort15();
         
         System.out.println("Initial Data");
         mSort.printArray(data);
