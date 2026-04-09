@@ -39,7 +39,6 @@ public class MainStudent15 {
         int position = data.findSeqSearch(search);
 
         data.showPosition(search, position);
-
         data.showData(search, position);
 
         System.out.print("Search student by NIM: ");
