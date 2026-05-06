@@ -70,6 +70,7 @@ public class StudentAssignmentStack15  {
         } 
     }
 
+    //modify number 6
     int count(){
         return top +1;
     }
