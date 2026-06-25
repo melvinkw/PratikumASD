@@ -1,0 +1,76 @@
+if (queueList.isEmpty()) {
+                        System.out.println("Antrian kosong. Tidak ada yang bisa dilayani.");
+                    } else {
+                        queueList.printQueue();
+                        System.out.println();
+                        
+                        System.out.print("Masukkan Nomor Antrian yang akan dilayani/dihapus: ");
+                        int targetQueue = sc.nextInt();
+                        sc.nextLine(); // Consume newline
+                        
+                        Buyer servedBuyer = queueList.removeByQueueNumber(targetQueue);
+                        
+                        if (servedBuyer != null) {
+                            System.out.println("\n--- Memproses Pesanan untuk " + servedBuyer.name + " (Antrian No: " + servedBuyer.queueNumber + ") ---");
+                            
+                            System.out.print("Order Code: ");
+                            int orderCode = sc.nextInt();
+                            sc.nextLine(); 
+                            System.out.print("Order Name: ");
+                            String orderName = sc.nextLine();
+                            System.out.print("Price     : ");
+                            int price = sc.nextInt();
+                            sc.nextLine();
+                            
+                            orderList.addLast(new Order(orderCode, orderName, price));
+                            
+                            System.out.println("\n[Selesai] " + servedBuyer.name + " telah memesan " + orderName);
+                        }
+                    }
+                    break;
+
+int totalRevenue = 0;
+totalRevenue += current.data.price;
+System.out.println("=========================================");
+System.out.println("Total Harga: " + totalRevenue);
+
+
+public Buyer removeByQueueNumber(int queueNum) {
+    if (isEmpty()) {
+        System.out.println("Antrian kosong!");
+        return null;
+    }
+
+    NodeBuyer temp = head;
+    while (temp != null) {
+        if (temp.data.queueNumber == queueNum) {
+            Buyer foundBuyer = temp.data; 
+
+            if (temp == head) {
+                head = head.next;
+                if (head != null) {
+                    head.prev = null;
+                } else {
+                    tail = null; // List jadi kosong
+                }
+            } 
+
+            else if (temp == tail) {
+                tail = tail.prev;
+                tail.next = null;
+            } 
+
+            else {
+                temp.prev.next = temp.next;
+                temp.next.prev = temp.prev;
+            }
+
+            size--; 
+            return foundBuyer;
+        }
+        temp = temp.next; 
+    }
+
+    System.out.println("Peringatan: Nomor antrian " + queueNum + " tidak ditemukan!");
+    return null;
+}
